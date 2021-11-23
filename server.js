@@ -19,12 +19,6 @@ const db = knex({
 });
 
 const port = process.env.PORT || 3000;
-const corsOptions = {
-	origin: 'https://facefindr.herokuapp.com',
-	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-	preflightContinue: false,
-	optionsSuccessStatus: 204,
-};
 
 const app = express();
 
