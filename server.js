@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
-// const cors = require('cors');
+const cors = require('cors');
 const knex = require('knex');
 
 const register = require('./controllers/register');
@@ -23,32 +23,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
-// app.use(cors());
-app.use(function (req, res, next) {
-	res.setHeader(
-		'Access-Control-Allow-Origin',
-		'https://facefindr.herokuapp.com'
-	);
-
-	// Request methods you wish to allow
-	res.setHeader(
-		'Access-Control-Allow-Methods',
-		'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-	);
-
-	// Request headers you wish to allow
-	res.setHeader(
-		'Access-Control-Allow-Headers',
-		'X-Requested-With,content-type'
-	);
-
-	// Set to true if you need the website to include cookies in the requests sent
-	// to the API (e.g. in case you use sessions)
-	res.setHeader('Access-Control-Allow-Credentials', true);
-
-	// Pass to next layer of middleware
-	next();
-});
+app.use(cors());
 
 app.get('/', (req, res) => {
 	res.send('Get off my lawn! 👴🏻');

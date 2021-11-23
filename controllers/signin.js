@@ -1,4 +1,4 @@
-const handleSignIn = async (req, res, db, bcrypt) => {
+async function handleSignIn(req, res, db, bcrypt) {
 	const { email, password } = req.body;
 
 	if (!email || !password) {
@@ -32,7 +32,7 @@ const handleSignIn = async (req, res, db, bcrypt) => {
 		console.error('wrong credentials', error);
 		res.status(400).json('wrong credentials');
 	}
-};
+}
 
 module.exports = {
 	handleSignIn: handleSignIn,
