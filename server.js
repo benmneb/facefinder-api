@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
 	res.setHeader(
 		'Access-Control-Allow-Origin',
-		'https://facefindr.herokuapp.com/'
+		'https://facefindr.herokuapp.com'
 	);
 
 	// Request methods you wish to allow
