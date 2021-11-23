@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
-const cors = require('cors');
+// const cors = require('cors');
 const knex = require('knex');
 
 const register = require('./controllers/register');
@@ -18,10 +18,20 @@ const db = knex({
 	},
 });
 
+const port = process.env.PORT || 3000;
+
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+// app.use(cors());
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', 'https://facefindr.herokuapp.com/');
+	res.header(
+		'Access-Control-Allow-Headers',
+		'Origin, X-Requested-With, Content-Type, Accept'
+	);
+	next();
+});
 
 app.get('/', (req, res) => {
 	res.send('Get off my lawn! 👴🏻');
@@ -42,6 +52,6 @@ app.post('/imageurl', (req, res) => {
 	image.handleApiCall(req, res);
 });
 
-app.listen(process.env.PORT || 3000, () => {
-	console.log(`🚀 App is running on ${process.env.PORT}`);
+app.listen(port, () => {
+	console.log(`🚀 Server is live on ${port}`);
 });
