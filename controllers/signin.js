@@ -14,7 +14,7 @@ async function handleSignIn(req, res, db, bcrypt) {
 		const isValid = await bcrypt.compareSync(password, data[0].hash);
 
 		if (!isValid) {
-			return res.status(400).json('wrong credentials');
+			return res.status(400).json('wrong credentials (1)');
 		}
 
 		try {
