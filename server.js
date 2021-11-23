@@ -25,7 +25,10 @@ const app = express();
 app.use(bodyParser.json());
 // app.use(cors());
 app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', 'https://facefindr.herokuapp.com/');
+	res.header(
+		'Access-Control-Allow-Origin',
+		'https://facefindr-api.herokuapp.com/'
+	);
 	res.header(
 		'Access-Control-Allow-Headers',
 		'Origin, X-Requested-With, Content-Type, Accept'
