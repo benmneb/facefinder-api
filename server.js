@@ -23,7 +23,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.get('/', (req, res) => {
 	res.send('Get off my lawn! 👴🏻');
