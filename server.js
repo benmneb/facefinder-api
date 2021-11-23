@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-	res.send('Get off my lawn! 👴🏻');
+	res.send('it is working!');
 });
 app.post('/signin', (req, res) => {
 	signin.handleSignIn(req, res, db, bcrypt);
@@ -45,5 +45,5 @@ app.post('/imageurl', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`🚀 Server is live on ${port}`);
+	console.log(`🚀 Server live on ${port}.`);
 });
